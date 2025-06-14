@@ -2,6 +2,7 @@ package theratime.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import theratime.service.TheraService;
@@ -15,6 +16,11 @@ public class TheraController {
 
 
     // 1. 시간표 등록
+    @PostMapping("/write")
+    public void onWrite( ){
+
+    }
+
 
     // 2. 시간표 전체 조회
 
