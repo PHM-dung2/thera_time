@@ -1,11 +1,11 @@
 package theratime.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import theratime.model.dto.TheraDto;
 import theratime.service.TheraService;
+import theratime.util.ApiResponse;
 
 @RestController
 @RequestMapping("/thera")
@@ -17,10 +17,11 @@ public class TheraController {
 
     // 1. 시간표 등록
     @PostMapping("/write")
-    public void onWrite( ){
+    public ResponseEntity< ApiResponse<Boolean> > onWrite(@RequestHeader("Authorization") String token, @RequestBody TheraDto theraDto ){
 
+        ApiResponse<Boolean> result = theraService.onWrite( token );
+        return ResponseEntity.status( 201 ).body( result );
     }
-
 
     // 2. 시간표 전체 조회
 
