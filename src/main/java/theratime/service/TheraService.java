@@ -18,6 +18,8 @@ public class TheraService {
     // 1. 시간표 등록
     @PostMapping("/write")
     public ApiResponse<Boolean> onWrite(String token ){
+        if( token == null ) return new ApiResponse<>( false, "시간표 등록 실패", null );
+
 
         return new ApiResponse<>( true, "시간표 등록 성공", null );
     }
