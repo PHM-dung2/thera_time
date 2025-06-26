@@ -24,6 +24,12 @@ public class TheraController {
     }
 
     // 2. 시간표 전체 조회
+    @GetMapping("/get")
+    public ResponseEntity< ApiResponse<TheraDto> > findAll(@RequestHeader("Authorization") String token ){
+
+        ApiResponse<TheraDto> result = theraService.findAll(token);
+        return ResponseEntity.status( 201 ).body( result );
+    }
 
     // 3. 시간표 개별 조회
 
